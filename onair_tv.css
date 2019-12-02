@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    overflow: hidden;
+}
+
+#demo{
+    z-index: -1;
+}
+
+#btnPrev {
+    position: relative;
+    left: -80px;
+    transform: translateY(50vh);
+    z-index: 1;
+  }
+
+  #btnNext {
+    position: relative;
+    transform: translate(90vw,45vh);
+    z-index: 1;
+  }
+
+  .detailsDiv{
+      position: absolute;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      left: 50px;
+      transform: translateY(-80vh);
+      z-index: 2;
+      width: 35vw;
+      height: 65%;
+      background-color: black;
+      opacity: 0.7;
+  }
+
+  .detailsDiv p{
+      margin-top: 10px;
+      padding: 3px 10px;
+      color: white;
+  }
+
+  .detailsDiv span{
+    border: 2px solid white;
+    border-radius: 2px;
+    margin-left: 4px;
+    padding: 0 5px;
+  }
+
+  .detailsDiv h1{
+    padding: 5px 10px;
+    color: white;
+  }
+
+  .detailsDiv h4{
+    padding: 5px 10px;
+    color: white;
+    font-size: 15px;
+  }
+
+  .detailsDiv h3{
+    padding: 0 10px;
+    color: white;
+    font-size: 1em;
+  }
+
+.bgImage{
+    width: 100vw;
+    height: 100vh;
+}

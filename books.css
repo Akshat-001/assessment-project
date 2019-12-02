@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    background-image: url('books.jpg');
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+    background: transparent;
+}
+
+.search > div {
+    display: inline-block;
+    position: relative;
+  }
+  .search{
+      z-index: 2;
+      margin: 20px;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      background-color: ivory;
+      padding: 15px;
+      border-radius: 0 0 20px 20px;
+  }
+  .search > div:after {
+    content: "";
+    background: black;
+    width: 4px;
+    height: 15px;
+    position: absolute;
+    top: 26px;
+    right: 0px;
+    transform: rotate(135deg);
+    box-shadow: 1px 0 #0091c2;
+  }
+  
+  .search > div > input {
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    background: transparent;
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    border: solid 3px black;
+    z-index: 3;
+    outline: none;
+    border-radius: 35px;
+    box-shadow: 0 1px #0091c2;
+    transition: width 0.5s;
+  }
+  
+  .search > div > input::placeholder {
+    color: black;
+    opacity: 0.5;
+  }
+  
+  .search > div > input:focus,
+  .search > div > input:valid {
+    width: 250px;
+  }
+
+#results{
+    background-color: rgba(255,255,255,0.7);
+    position: relative;
+    top: 65px;
+    width: 95vw;
+    left: 50%;
+    border-radius: 15px;
+    transform: translateX(-50%);
+
+    /* display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 3fr repeat(6,1fr); */
+    /* grid-template-areas:
+    "a a"
+    "b c"
+    "b d"
+    "b e"
+    "f f"
+    "g g"
+    "h h"
+    "i i"; */
+}  
+
+.books{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 50px 100px 50px 50px .25fr 50px 50px 50px ;
+    grid-template-areas:
+    "a a"
+    "b c"
+    "b d"
+    "b e"
+    "f f"
+    "g g"
+    "h h"
+    "i i";
+    margin-bottom: 100px;
+}
+.books h1{
+    grid-area: a;
+    justify-self: flex-start;
+}
+.books img{
+    grid-area: b;
+    justify-self: center;
+    margin-top: 17px;
+}
+.books h2{
+    grid-area: c;
+    align-self: center;
+}
+.books h3{
+    grid-area: f;
+    margin-top: 20px;
+}
+.books h3 br{
+    display: none;
+}
+.books h4{
+    grid-area: h;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.books h5{
+    grid-area: d;
+    margin-top: -20px;
+    font-size: 20px;
+}
+.books h6{
+    grid-area: i;
+    font-size: 20px;
+}
+.books a{
+    grid-area: e;
+    cursor: pointer;
+    width: 120px;
+    height: 40px; 
+    font-size: 20px;
+    margin-top: -22px;
+    text-decoration: none;
+    color: white;
+    background-color: skyblue;
+    padding-left: 12px;
+    padding-top: 3px;
+    border-radius: 5px;
+}
+.books ul{
+    grid-area: g;
+    list-style-type: none;
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.books{
+    padding: 20px;
+}
+
+ul li{
+    display: inline-block;
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-style: italic;
+
+}
+
+
+#footer a{
+    position: relative;
+    left: 38%;
+    transform: translateX(-38%);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+}
+
+#footer{
+    width: 100vw;
+    height: 100px;
+    position: relative;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.97);
+}
+
+.footerAdil{
+    position: absolute;
+    right: 50px;
+    top: 25px;
+}
+
+.footerAkshat{
+    position: absolute;
+    right: 30px;
+    top: 55px;
+}
+
+#footer h3{
+    position: absolute;
+    top: 25px;
+    right: 100px;
+    color: white;
+}
+
+.footerAdil a{
+    color: white;
+    font-size: 30px;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+.footerAkshat a{
+    color: white;
+    font-size: 30px;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#footer img{
+    height: 80%;
+    position: relative;
+    margin-top: 10px;
+    left: 20px;
+    
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="movie.css">
+  <title>Movie</title>
+  <style>
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+
+      .sidenav a {
+        font-size: 18px;
+      }
+    }
+
+    .navContainer {
+      display: inline-block;
+      cursor: pointer;
+      position: absolute;
+      top: 14px;
+      left: 15px;
+      width: 100px;
+      height: 50px;
+      z-index: 2;
+    }
+
+    .bar1,
+    .bar2,
+    .bar3 {
+      width: 35px;
+      height: 6px;
+      background-color: rgba(0, 0, 0, 0.9);
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    .sidenav h3 {
+      color: red;
+      text-align: center;
+    }
+
+    #tvDropdown {
+      display: none;
+      position: relative;
+      background-color: #262626;
+      padding-left: 8px;
+      animation: drop 0.5s;
+    }
+
+    #moviesDropdown {
+      display: none;
+      position: relative;
+      background-color: #262626;
+      padding: 12px 16px;
+      animation: drop 0.5s;
+    }
+
+    @keyframes drop {
+      from {
+        top: -50px;
+      }
+
+      to {
+        top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <h3>Search Movies</h3>
+    <a href="./index.html">HOME</a>
+    <a id="movId" href="#">MOVIES</a>
+    <div id="moviesDropdown">
+      <a href="./movie.html">Search</a>
+      <a href="./nowplaying_movie.html">Now Playing</a>
+      <a href="./upcoming_movie.html">Upcoming</a>
+      <a href="./top_rated_movie.html">Top Rated</a>
+    </div>
+    <a id="tvId" href="#">TV SHOWS</a>
+    <div id="tvDropdown">
+      <a href="./tv.html">Search</a>
+      <a href="./onair_tv.html">On-Air</a>
+      <a href="./top_rated_tv.html">Top Rated</a>
+    </div>
+    <a href="./books.html">BOOKS</a>
+    <a href="#">MUSIC</a>
+  </div>
+  <div class="navBack"></div>
+  <div class="navContainer" onclick="openNav()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  <div class="searchContainer">
+    <div class="search">
+      <div>
+        <input type="text" id="search" placeholder="    Search...." required>
+      </div>
+    </div>
+    <iframe id="video" class="hideVid" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div id="container">
+    <img alt="No image" id="img" class="hideImg">
+    <div class="content">
+      <h2 id="movie_name"></h2>
+      <p id="summary"></p>
+      <p id="budget"></p>
+      <ul id="genre"></ul>
+    </div>
+  </div>
+  <div class="hideImg" id="footer">
+    <img src="logo.png">
+    <a href="https://www.themoviedb.org/?language=en-US">&copy;themovieDB All rights reserved</a>
+    <h3>Contact Us :</h3>
+    <div class="footerAdil">
+      <a href="https://adil-io.github.io/" target="_blank">Adil</a>
+    </div>
+    <div class="footerAkshat">
+      <a href="https://akshat-001.github.io/" target="_blank">Akshat</a>
+    </div>
+  </div>
+  <script src="movie.js"></script>
+  <script>
+    function openNav() {
+      // x.classList.toggle("change");
+      document.getElementById("mySidenav").style.width = "30vw";
+      // main.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      // main.style.backgroundColor = "white";
+    }
+    var movId = document.getElementById('movId')
+    var moviesDropdown = document.getElementById('moviesDropdown')
+    movId.onclick = function () {
+      if (moviesDropdown.style.display === 'block')
+        moviesDropdown.style.display = 'none'
+      else {
+        moviesDropdown.style.display = 'block'
+      }
+    }
+    var tvId = document.getElementById('tvId')
+    var tvDropdown = document.getElementById('tvDropdown')
+    tvId.onclick = function () {
+      if (tvDropdown.style.display === 'block')
+        tvDropdown.style.display = 'none'
+      else {
+        tvDropdown.style.display = 'block'
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>UPCOMING MOVIE</title>
+  <link rel="stylesheet" href="upcoming_movie.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+
+      .sidenav a {
+        font-size: 18px;
+      }
+    }
+
+    .container {
+      display: inline-block;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 50px;
+      z-index: 2;
+    }
+
+    .bar1,
+    .bar2,
+    .bar3 {
+      width: 35px;
+      height: 6px;
+      background-color: white;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    .sidenav h3 {
+      color: red;
+      text-align: center;
+    }
+
+    #tvDropdown {
+      display: none;
+      position: relative;
+      background-color: #262626;
+      padding-left: 8px;
+      animation: drop 0.5s;
+    }
+
+    #moviesDropdown {
+      display: none;
+      position: relative;
+      background-color: #262626;
+      padding: 12px 16px;
+      animation: drop 0.5s;
+    }
+
+    @keyframes drop {
+      from {
+        top: -50px;
+      }
+
+      to {
+        top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <h3>Upcoming Movies</h3>
+    <a href="./index.html">HOME</a>
+    <a id="movId" href="#">MOVIES</a>
+    <div id="moviesDropdown">
+      <a href="./movie.html">Search</a>
+      <a href="./nowplaying_movie.html">Now Playing</a>
+      <a href="./upcoming_movie.html">Upcoming</a>
+      <a href="./top_rated_movie.html">Top Rated</a>
+    </div>
+    <a id="tvId" href="#">TV SHOWS</a>
+    <div id="tvDropdown">
+      <a href="./tv.html">Search</a>
+      <a href="./onair_tv.html">On-Air</a>
+      <a href="./top_rated_tv.html">Top Rated</a>
+    </div>
+    <a href="./books.html">BOOKS</a>
+    <a href="#">MUSIC</a>
+  </div>
+  <div class="container" onclick="openNav()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  <div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+      <li data-target="#demo" data-slide-to="3"></li>
+      <li data-target="#demo" data-slide-to="4"></li>
+      <li data-target="#demo" data-slide-to="5"></li>
+      <li data-target="#demo" data-slide-to="6"></li>
+      <li data-target="#demo" data-slide-to="7"></li>
+      <li data-target="#demo" data-slide-to="8"></li>
+      <li data-target="#demo" data-slide-to="9"></li>
+    </ul>
+    <div id="containerCarousel" class="corousel-inner">
+
+    </div>
+    <a id="btnPrev" class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a id="btnNext" class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+
+  <script src="upcoming_movie.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    var main = document.getElementById('results')
+    function openNav() {
+      // x.classList.toggle("change");
+      document.getElementById("mySidenav").style.width = "30vw";
+      // main.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      // main.style.backgroundColor = "white";
+    }
+
+    var movId = document.getElementById('movId')
+    var moviesDropdown = document.getElementById('moviesDropdown')
+    movId.onclick = function () {
+      if (moviesDropdown.style.display === 'block')
+        moviesDropdown.style.display = 'none'
+      else {
+        moviesDropdown.style.display = 'block'
+      }
+    }
+    var tvId = document.getElementById('tvId')
+    var tvDropdown = document.getElementById('tvDropdown')
+    tvId.onclick = function () {
+      if (tvDropdown.style.display === 'block')
+        tvDropdown.style.display = 'none'
+      else {
+        tvDropdown.style.display = 'block'
+      }
+    }
+  </script>
+</body>
+
+</html>
