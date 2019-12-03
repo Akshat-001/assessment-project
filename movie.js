@@ -9,6 +9,7 @@ var review_auth = document.getElementById("review_auth")
 var review_content = document.getElementById("review_content")
 var video = document.getElementById("video")
 var footer = document.getElementById('footer')
+var content = document.getElementById('content')
 ip.onkeyup = function (e) {
 	if (e.key === "Enter") {
 		console.log("Enter pressed")
@@ -36,6 +37,7 @@ function initiate() {
 				summary.textContent = data.results[0].overview
 				ip.value = ""
 				genre.innerHTML = ""
+				content.setAttribute('class', 'showImg')
 				image.setAttribute('class', 'showImg')
 				image.setAttribute(
 					"src",

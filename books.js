@@ -29,9 +29,11 @@ function initiate() {
       var data = JSON.parse(xhr.responseText)
       console.log(data)
       if (data.results.length == 0) {
+        footer.setAttribute('class', 'hide')
         alert("No such eBooks Found")
       }
       else {
+        footer.setAttribute('class', 'show')
         for (let i = 0; i < 5 && i < data.results.length; i++) {
           let image = document.createElement('img')
           let book_name = document.createElement('h1')
@@ -49,12 +51,12 @@ function initiate() {
           book_name.textContent = data.results[i].trackName
           image.style.cssText = 'width:150px;height:200px;'
           image.setAttribute('src', data.results[i].artworkUrl100)
-          author.textContent = 'Author : ' + data.results[i].artistName
-          summary.innerHTML = '<h3>Summary : </h3>' + data.results[i].description
-          user_rating.textContent = 'User rating : ' + data.results[i].averageUserRating
-          price.textContent = `Price : ${data.results[i].formattedPrice}`
+          author.innerHTML = '<b>Author : </b>' + data.results[i].artistName
+          summary.innerHTML = '<b>Summary : </b>' + data.results[i].description
+          user_rating.innerHTML = '<b>User rating : </b>' + data.results[i].averageUserRating
+          price.innerHTML = `<b>Price : </b>${data.results[i].formattedPrice}`
           let mb = data.results[i].fileSizeBytes / 1000000
-          size_in_bytes.textContent = 'Size : ' + mb.toFixed(2) + " Mb"
+          size_in_bytes.innerHTML = '<b>Size : </b>' + mb.toFixed(2) + " Mb"
           buy.setAttribute('href', data.results[0].trackViewUrl)
           buy.target = '_blank'
           // release_date.textContent = data.results[0].releaseDate
@@ -79,7 +81,7 @@ function initiate() {
       }
 
     }
-    footer.setAttribute('class', 'show')
+
   }
   xhr.send()
 }

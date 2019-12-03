@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -108,11 +109,13 @@ body,html{
 .books h1{
     grid-area: a;
     justify-self: flex-start;
+    font-size: 40px;
+    font-weight: 900;
 }
 .books img{
     grid-area: b;
     justify-self: center;
-    margin-top: 17px;
+    margin-top: 35px;
 }
 .books h2{
     grid-area: c;
@@ -121,6 +124,10 @@ body,html{
 .books h3{
     grid-area: f;
     margin-top: 20px;
+}
+.books h3 b{
+    display: block;
+    margin-top: 14px;
 }
 .books h3 br{
     display: none;
@@ -185,61 +192,61 @@ ul li{
 
 }
 
-
-#footer a{
+#footer span a{
     position: relative;
-    left: 38%;
-    transform: translateX(-38%);
+    left: 30%;
+    top: 10px;
     color: rgba(255, 255, 255, 0.9);
     font-size: 15px;
-}
-
-#footer{
+  }
+  
+  #footer{
     width: 100vw;
     height: 100px;
     position: relative;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.97);
-}
-
-.footerAdil{
+  }
+  .footerAdil{
     position: absolute;
-    right: 50px;
+    right: 74px;
     top: 25px;
-}
-
-.footerAkshat{
+  }
+  
+  .footerAkshat{
     position: absolute;
-    right: 30px;
+    right: 52px;
     top: 55px;
-}
-
-#footer h3{
+  }
+  
+  #footer h3{
     position: absolute;
-    top: 25px;
-    right: 100px;
+    top: 20%;
+    right: 115px;
     color: white;
-}
-
-.footerAdil a{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .footerAdil a{
     color: white;
-    font-size: 30px;
+    font-size: 15px;
     display: inline-block;
+    font-family: 'Roboto Slab', serif;
     text-decoration: none;
     cursor: pointer;
-}
-.footerAkshat a{
+  }
+  .footerAkshat a{
     color: white;
-    font-size: 30px;
+    font-size: 15px;
     display: inline-block;
+    font-family: 'Roboto Slab', serif;
     text-decoration: none;
     cursor: pointer;
-}
-
-#footer img{
+  }
+  
+  #footer img{
     height: 80%;
     position: relative;
     margin-top: 10px;
     left: 20px;
-    
-}
+  }

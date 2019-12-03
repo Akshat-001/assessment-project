@@ -35,6 +35,7 @@ window.addEventListener('load', function () {
                     alert("No Search Results Found!!!")
                 }
                 else {
+                    results.setAttribute('class', 'showImg')
                     var tv_id = data.results[0].id
                     let img = `https://image.tmdb.org/t/p/original${data.results[0].poster_path}`
                     poster.setAttribute('src', img)
@@ -70,7 +71,7 @@ window.addEventListener('load', function () {
                     console.log("looping " + i)
                     seasonNo = data.seasons[i].season_number
                     let numEpisodes = data.seasons[i].episode_count
-                    getSeasonDetails(seasonNo, tv_id, numEpisodes)
+                    getSeasonDetails(seasonNo, tv_id, numEpisodes, i)
                 }
                 getVideos(tv_id)
             }
@@ -99,7 +100,7 @@ window.addEventListener('load', function () {
 
     // }
 
-    function getSeasonDetails(seasonNo, tv_id, numEpisodes) {
+    function getSeasonDetails(seasonNo, tv_id, numEpisodes, i) {
         let xhr = new XMLHttpRequest()
         let url = `https://api.themoviedb.org/3/tv/${tv_id}/season/${seasonNo}?api_key=${api_key}&language=en-US`
         xhr.open('GET', url)
@@ -108,15 +109,44 @@ window.addEventListener('load', function () {
                 var data = JSON.parse(xhr.responseText)
                 console.log(data)
                 console.log('Season details')
+                let accordion = document.createElement('div')
+                accordion.setAttribute('class', 'panel-group')
+                accordion.setAttribute('id', 'accordion')
+                let panelDefault = document.createElement('div')
+                panelDefault.setAttribute('class', 'panel panel-default')
+                let panelHeading = document.createElement('div')
+                panelHeading.setAttribute('class', 'panel-heading')
+                let panelTitle = document.createElement('h4')
+                panelTitle.setAttribute('class', 'panel-title')
+                let anchor = document.createElement('a')
+                anchor.setAttribute('data-toggle', 'collapse')
+                anchor.setAttribute('data-parent', '#accordion')
+                anchor.setAttribute('href', `#collapse${i}`)
+                anchor.textContent = `Season ${seasonNo}:`
+                panelTitle.appendChild(anchor)
+                panelHeading.appendChild(panelTitle)
+                let collapseSe = document.createElement('div')
+                collapseSe.setAttribute('id', `collapse${i}`)
+                collapseSe.setAttribute('class', 'panel-collapse collapse in')
+                let panelBody = document.createElement('div')
+                panelBody.setAttribute('class', 'panel-body')
                 let seasonOverview = data.episodes[0].overview
-                let seasonNum = document.createElement('button')
-                seasonNum.setAttribute('class', 'seasonCollapse')
-                seasonNum.innerHTML = `Season ${seasonNo}:`
-                let epDetails = document.createElement('div')
-                epDetails.className = 'seasonContent'
-                epDetails.innerHTML = `<p>${seasonOverview}</p><p>Number of Episodes : ${numEpisodes}</p>`
-                seasonDetails.appendChild(seasonNum)
-                seasonDetails.appendChild(epDetails)
+                panelBody.innerHTML = `<p>${seasonOverview}</p><p>Number of Episodes : ${numEpisodes}</p>`
+                panelDefault.appendChild(panelHeading)
+                collapseSe.appendChild(panelBody)
+                panelDefault.appendChild(collapseSe)
+
+                accordion.appendChild(panelDefault)
+                seasonDetails.appendChild(accordion)
+
+                // let seasonNum = document.createElement('button')
+                // seasonNum.setAttribute('class', 'seasonCollapse')
+                // seasonNum.innerHTML =
+                //     let epDetails = document.createElement('div')
+                // epDetails.className = 'seasonContent'
+                // epDetails.innerHTML = ``
+                // seasonDetails.appendChild(seasonNum)
+                // seasonDetails.appendChild(epDetails)
 
 
                 // summary.insertAdjacentHTML('afterend', `<p>${data.episodes[i].overview}</p>`)
