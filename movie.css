@@ -111,7 +111,7 @@ body{
     background-color: rgba(0, 0, 0, 0.8);
     width: 700px;
     height: 47vh;
-    top: -18%;
+    top: 5%;
     position: relative;
     border-radius: 20px;
 }
@@ -150,7 +150,7 @@ ul li{
 
 #img{
    justify-self: center;
-   margin-top: -30px;
+   margin-top: 80px;
    border: 10px solid white;
    outline: 1px solid black;
    /* outline-offset: -10px; */
